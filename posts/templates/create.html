@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %} Create Post |{{ block.super}}{% endblock %}
+{% block content %}
+<div class="col-sm-12  col-sm-offset-3 mt-3">
+    <h3>Create Your Post Here!!</h3>
+    <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Create">
+    </form>
+</div>
+{%  endblock content %}

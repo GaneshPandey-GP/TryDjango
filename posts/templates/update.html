@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Update|{{ block.super}}{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-6  col-sm-offset-4 mt-3 ">
+
+<form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Update">
+</form>
+</div>
+</div>
+{% endblock content %}

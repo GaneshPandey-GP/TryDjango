@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} {{posts.title}} |{{ block.super}}{% endblock %}
+{% block content %}
+
+<div class="row">
+  <div class="col-sm-6  col-sm-offset-4 mt-3 ">
+
+    {% if posts.image %}
+    <img src="{{posts.image.url}}" class="img-thumbnail img-responsive" alt="Image">
+    {% endif %}
+    <h3>{{posts.title}} <small>{% if posts.draft %} <span style="color: red;">Draft</span> {% endif %}{{posts.publish}}</small> </h3>
+    <br>
+    <h6>Author : {{posts.user.username}}</h6><br>
+    <p>
+    <div class="fb-like" data-href="{{request.build_absolute_uri}}" data-width="" data-layout="button_count"
+      data-action="like" data-size="small" data-share="true"></div>
+    </p>
+   
+   <div class="row">
+     <div class="col-sm-12">
+      <hr>{{posts.content|linebreaks}} <hr>
+      <div class="fb-comments" data-href="{{request.build_absolute_uri}}" data-numposts="5" data-width=""></div>
+     </div>
+   </div>
+    <!-- {{request.build_absolute_uri}} -->
+    
+    <hr>
+    <button><a href="{{posts.get_Update_absoulte_url}}">Update</a></button>
+    <button><a href="{{posts.get_Delete_absoulte_url}}">Delete</a></button>
+  </div>
+</div>
+{% endblock content  %}
